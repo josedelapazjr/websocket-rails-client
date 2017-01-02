@@ -1,16 +1,15 @@
-<h3>Home#index</h3>
-
+<h3>Messages</h3>
+  <ul id="messageList">
+  </ul>
 <script>
   // Basic python websocket server
   //var exampleSocket = new WebSocket("ws://localhost:8765");
-  // Tornado python websocket server 
+  // Tornado python websocket server
   var exampleSocket = new WebSocket("ws://localhost:8888/ws");
   exampleSocket.onopen = function(){
- 		 //message('<p class="event">Socket Status: '+socket.readyState+' (open)');
-     console.log('connected!');
-     //exampleSocket.send('hi');
+     $('#messageList').append('<li>' + 'Connected to websocket server!' + '</li>');
   }
   exampleSocket.onmessage = function (event) {
-    console.log(event.data);
+    $('#messageList').append('<li>' + event.data + '</li>');
   }
 </script>

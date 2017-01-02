@@ -1,0 +1,16 @@
+<h3>Home#index</h3>
+
+<script>
+  // Basic python websocket server
+  //var exampleSocket = new WebSocket("ws://localhost:8765");
+  // Tornado python websocket server 
+  var exampleSocket = new WebSocket("ws://localhost:8888/ws");
+  exampleSocket.onopen = function(){
+ 		 //message('<p class="event">Socket Status: '+socket.readyState+' (open)');
+     console.log('connected!');
+     //exampleSocket.send('hi');
+  }
+  exampleSocket.onmessage = function (event) {
+    console.log(event.data);
+  }
+</script>
